@@ -1,18 +1,16 @@
 "use client";
 import styles from "./yogoEvent.module.css";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function YogoEvent() {
-  // 드롭다운의 상태를 관리
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
 
-  // 첫 번째 드롭다운 상태를 토글하는 함수
   const toggleDropdown1 = () => {
     setIsOpen1(!isOpen1);
   };
 
-  // 두 번째 드롭다운 상태를 토글하는 함수
   const toggleDropdown2 = () => {
     setIsOpen2(!isOpen2);
   };
@@ -23,22 +21,26 @@ export default function YogoEvent() {
         src="/images/yogo_event_benefits.png"
         alt="요고 요금제 혜택 이미지"
         width={390}
+        height={590}
       />
       <Image
         src="/images/yogo_event_season2_benefits.png"
         alt="요고 요금제 시즌2 혜택 이미지"
         width={390}
+        height={1022.84}
       />
       <Image
         src="/images/yogo_event_data_benefits.png"
         alt="요고 요금제 데이터 혜택 이미지"
         width={390}
+        height={233.48}
       />
       <div className={styles.mintContainer}>
         <Image
           src="/images/yogo_event_dataTable.png"
           alt="요고 요금제 데이터 표"
           width={390}
+          height={408.57}
           className={styles.dataTable}
         />
       </div>
@@ -46,26 +48,31 @@ export default function YogoEvent() {
         src="/images/yogo_event_membershipPromotion.png"
         alt="요고 요금제 멤버십 혜택 이미지"
         width={390}
+        height={814.84}
       />
       <Image
         src="/images/yogo_event_coupon.png"
         alt="요고 요금제 쿠폰팩 이미지"
         width={390}
+        height={930.8}
       />
       <Image
         src="/images/yogo_event_compare.png"
         alt="요고 요금제 알뜰폰 비교 이미지"
         width={390}
+        height={673.92}
       />
       <Image
         src="/images/yogo_event_yogomungchi.png"
         alt="요고 요금제 요고뭉치 이미지"
         width={390}
+        height={500.24}
       />
       <Image
         src="/images/yogo_event_bottomBanner.png"
         alt="요고 요금제 시즌2 하단 배너 이미지"
         width={390}
+        height={145.6}
       />
       <div className={styles.bottomContainer}>
         <Image
@@ -91,7 +98,8 @@ export default function YogoEvent() {
                 ? "요고 요금제 드롭다운 숨기기"
                 : "요고 요금제 드롭다운 보이기"
             }
-            width={16}
+            width={16.52}
+            height={10.73}
           />
         </button>
 
@@ -128,7 +136,8 @@ export default function YogoEvent() {
                 ? "요고 요금제 드롭다운 숨기기"
                 : "요고 요금제 드롭다운 보이기"
             }
-            width={16}
+            width={16.52}
+            height={10.73}
           />
         </button>
 
