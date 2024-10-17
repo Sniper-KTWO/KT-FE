@@ -1,17 +1,21 @@
+/* nextui 적용 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 global.css html,
 body {
   width: 390px;
   height: 844px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   overflow: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .container {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 모든 콘텐츠를 화면 중앙에 정렬 */
 }

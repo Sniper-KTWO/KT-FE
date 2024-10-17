@@ -1,9 +1,18 @@
+/* nextui 적용 */
+const { nextui } = require("@nextui-org/react");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  reactStrictMode: true,
+  experimental: {
+    appDir: true, // Next.js 13의 App Directory 사용 중이라면 필요
+  },
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    /* nextui 적용 */
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -13,5 +22,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  /* nextui 적용 */
+  darkMode: "class",
+  plugins: [nextui()],
 };
