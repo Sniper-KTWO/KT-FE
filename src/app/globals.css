@@ -19,3 +19,9 @@ body {
   justify-content: center;
   align-items: center; /* 모든 콘텐츠를 화면 중앙에 정렬 */
 }
+
+/* 이미지 슬라이더 화살표 색상 지정 */
+.slick-prev:before,
+.slick-next:before {
+  color: hwb(0 82% 18%) !important;
+}

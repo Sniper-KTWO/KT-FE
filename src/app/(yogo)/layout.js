@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { Icon } from "@iconify/react";
+import Image from 'next/image';
+import { Icon } from '@iconify/react';
 import {
   Button,
   Navbar,
@@ -7,7 +7,7 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
-} from "@nextui-org/react";
+} from '@nextui-org/react';
 
 export default function Layout({ children }) {
   return (
@@ -20,6 +20,7 @@ export default function Layout({ children }) {
               alt="kt_logo"
               width={30}
               height={25}
+              priority={true}
             />
           </Link>
         </NavbarBrand>
