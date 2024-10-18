@@ -1,5 +1,5 @@
 "use client";
-import styles from "./yogoEvent.module.css";
+import styles from "./styles/yogoEvent.module.css";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -18,22 +18,115 @@ export default function YogoEvent() {
   return (
     <div className={styles.container}>
       <Image
-        src="/images/yogo_event_benefits.png"
-        alt="요고 요금제 혜택 이미지"
+        src="/images/2-1.png"
+        alt="2-1 이미지"
         width={390}
-        height={590}
-      />
+        height={457.08}
+      ></Image>
+      <Image
+        src="/images/2-2.png"
+        alt="2-2 이미지"
+        width={390}
+        height={95.68}
+        className={styles.image2_2}
+      ></Image>
+      <div className={styles.sliderBarPart}>{/*슬라이더바 들어갈 위치*/}</div>
+      <Image
+        src="/images/2-4.png"
+        alt="2-4 이미지"
+        width={390}
+        height={116.48}
+        className={styles.image2_4}
+      ></Image>
+      <Image
+        src="/images/2-5.png"
+        alt="2-5 이미지"
+        width={390}
+        height={292.24}
+        className={styles.image2_5}
+      ></Image>
+      <div className={styles.yogoEvent_video}>
+        {/*나중에 동영상 삽입할 부분. 현재는 배경이미지만 넣어놓음.*/}
+      </div>
+      <Image
+        src="/images/2-7.png"
+        alt="2-7 이미지"
+        width={390}
+        height={728}
+      ></Image>
+      <div className={styles.yogoEvent_benefits}>
+        <Image
+          src="/images/yogo_event_benefits.png"
+          alt="요고 요금제 혜택 이미지"
+          width={390}
+          height={590}
+        />
+        <a
+          href="#target-div1"
+          style={{
+            position: "absolute",
+            top: "3714px",
+            left: "calc(50% - 160px)",
+            width: "139px",
+            height: "156px",
+            cursor: "pointer",
+          }}
+        >
+          {/*클릭하여 이동*/}
+        </a>
+        <a
+          href="#target-div2"
+          style={{
+            position: "absolute",
+            top: "3714px",
+            left: "calc(50% + 10px)",
+            width: "139px",
+            height: "156px",
+            cursor: "pointer",
+          }}
+        >
+          {/*클릭하여 이동*/}
+        </a>
+        <a
+          href="#target-div3"
+          style={{
+            position: "absolute",
+            top: "3921px",
+            left: "calc(50% - 160px)",
+            width: "139px",
+            height: "156px",
+            cursor: "pointer",
+          }}
+        >
+          {/*클릭하여 이동*/}
+        </a>
+        <a
+          href="#target-div4"
+          style={{
+            position: "absolute",
+            top: "3921px",
+            left: "calc(50% + 10px)",
+            width: "139px",
+            height: "156px",
+            cursor: "pointer",
+          }}
+        >
+          {/*클릭하여 이동*/}
+        </a>
+      </div>
       <Image
         src="/images/yogo_event_season2_benefits.png"
         alt="요고 요금제 시즌2 혜택 이미지"
         width={390}
         height={1022.84}
+        id="target-div1"
       />
       <Image
         src="/images/yogo_event_data_benefits.png"
         alt="요고 요금제 데이터 혜택 이미지"
         width={390}
         height={233.48}
+        id="target-div2"
       />
       <div className={styles.mintContainer}>
         <Image
@@ -49,12 +142,14 @@ export default function YogoEvent() {
         alt="요고 요금제 멤버십 혜택 이미지"
         width={390}
         height={814.84}
+        id="target-div3"
       />
       <Image
         src="/images/yogo_event_coupon.png"
         alt="요고 요금제 쿠폰팩 이미지"
         width={390}
         height={930.8}
+        id="target-div4"
       />
       <Image
         src="/images/yogo_event_compare.png"
