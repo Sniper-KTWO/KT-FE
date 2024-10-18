@@ -47,6 +47,15 @@ export default function YogoEvent() {
       ></Image>
       <div className={styles.yogoEvent_video}>
         {/*나중에 동영상 삽입할 부분. 현재는 배경이미지만 넣어놓음.*/}
+        <iframe
+          width="170.56"
+          height="304.72"
+          src="https://www.youtube.com/embed/EEKovGsbLWg?start=5"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
       </div>
       <Image
         src="/images/2-7.png"
