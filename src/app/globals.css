@@ -19,3 +19,9 @@ body {
   position: absolute;
   display: flex;
 }
+
+/* 이미지 슬라이더 화살표 색상 지정 */
+.slick-prev:before,
+.slick-next:before {
+  color: hwb(0 82% 18%) !important;
+}
