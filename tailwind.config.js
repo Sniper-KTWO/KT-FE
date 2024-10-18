@@ -1,5 +1,5 @@
 /* nextui 적용 */
-const { nextui } = require("@nextui-org/react");
+const { nextui, commonColors } = require("@nextui-org/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -19,6 +19,7 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        mint: commonColors.green[200], // mint 색상 추가
       },
     },
   },
