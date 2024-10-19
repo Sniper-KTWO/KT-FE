@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { Icon } from "@iconify/react";
+import Image from 'next/image';
+import { Icon } from '@iconify/react';
 import {
   Button,
   Navbar,
@@ -9,9 +9,9 @@ import {
   Link,
   Dropdown,
   DropdownTrigger,
-} from "@nextui-org/react";
-import styles from "@/styles/layout.module.css";
-import Menu from "@/components/dropdown/menu";
+} from '@nextui-org/react';
+import styles from '@/app/layout.css';
+import Menu from '@/components/dropdown/menu';
 
 export default function Layout({ children }) {
   return (
@@ -20,7 +20,7 @@ export default function Layout({ children }) {
         isCompact
         isBordered
         variant="sticky"
-        classNames={{ wrapper: "px-0" }} // 패딩값 소거
+        classNames={{ wrapper: 'px-0' }} // 패딩값 소거
       >
         <NavbarBrand>
           <Link href="/">
