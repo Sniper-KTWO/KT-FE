@@ -1,0 +1,22 @@
+.slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  background-image: url('../../../../public/images/brand-slider/brand0.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 390px;
+  height: 777px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.sliderWrapper {
+  position: relative;
+  top: 30px;
+  z-index: 2;
+}
