@@ -35,6 +35,34 @@
   background-size: cover;
 }
 
+.videoContainer1 {
+  display: flex;
+  justify-content: center;
+}
+
+.video1 {
+  margin-top: 126px;
+  border-radius: 20px;
+}
+
+.videoContainer2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.video2 {
+  margin-top: 115.96px;
+  border-radius: 15px;
+  margin-right: 6.5px;
+}
+
+.video3 {
+  margin-top: 115.96px;
+  border-radius: 15px;
+  margin-left: 6.5px;
+}
+
 .yogoEvent_benefits {
   position: "relative";
 }

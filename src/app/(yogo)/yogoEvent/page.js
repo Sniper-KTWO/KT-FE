@@ -4,6 +4,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function YogoEvent() {
+  const [width, setWidth] = useState(100); // 기본 사이즈 100
+  const handleChange = (e) => {
+    setWidth(e.target.value); // 입력된 값으로 가로 크기 변경
+  };
+
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
 
@@ -30,7 +35,20 @@ export default function YogoEvent() {
         height={95.68}
         className={styles.image2_2}
       ></Image>
-      <div className={styles.sliderBarPart}>{/*슬라이더바 들어갈 위치*/}</div>
+      <div className={styles.sliderBarPart}>
+        {/*슬라이더바 들어갈 위치*/}
+        <div style={{ marginTop: "20px", border: "1px solid gray" }}>
+          <span
+            style={{
+              display: "inline-block",
+              width: `${width}px`,
+              backgroundColor: "lightblue",
+            }}
+          >
+            수치조절부분{" "}
+          </span>
+        </div>
+      </div>
       <Image
         src="/images/2-4.png"
         alt="2-4 이미지"
@@ -46,16 +64,37 @@ export default function YogoEvent() {
         className={styles.image2_5}
       ></Image>
       <div className={styles.yogoEvent_video}>
-        {/*나중에 동영상 삽입할 부분. 현재는 배경이미지만 넣어놓음.*/}
-        <iframe
-          width="170.56"
-          height="304.72"
-          src="https://www.youtube.com/embed/EEKovGsbLWg?start=5"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        <div className={styles.videoContainer1}>
+          <iframe
+            width="170.56"
+            height="304.72"
+            src="https://www.youtube.com/embed/EEKovGsbLWg?start=5"
+            title="YouTube video player1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className={styles.video1}
+          ></iframe>
+        </div>
+        <div className={styles.videoContainer2}>
+          <iframe
+            width="170.56"
+            height="304.72"
+            src="https://www.youtube.com/embed/RStVl4lilxM"
+            title="YouTube video player2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className={styles.video2}
+          ></iframe>
+          <iframe
+            width="170.56"
+            height="304.72"
+            src="https://www.youtube.com/embed/bxFI64dzg1E"
+            title="YouTube video player3"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className={styles.video3}
+          ></iframe>
+        </div>
       </div>
       <Image
         src="/images/2-7.png"
