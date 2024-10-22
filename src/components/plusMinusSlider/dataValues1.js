@@ -1,3 +1,4 @@
+//uncheckedLeftData
 export const frontDataValues = [
   "5GB", // 1단계
   "10GB", // 2단계
