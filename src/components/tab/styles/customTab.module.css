@@ -1,3 +1,89 @@
-.customTab {
+.filter {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.result {
+  color: #868e96;
+  font-size: 15px;
+  align-content: center;
+}
+
+.filter2 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  /* border: 1px solid black; */
+}
+
+.title {
+  font-size: 12px;
+  color: #adb5bd;
+  display: flex;
+  flex-direction: row;
+}
+
+.customImage {
+  width: 20px;
+  height: 20px;
+  border-radius: 0px;
+  margin-right: 13px;
+}
+
+.boldText {
+  display: flex;
+  flex-direction: row;
   font-weight: bold;
+  font-size: 19px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.info {
+  font-size: 13px;
+  font-weight: bold;
+  color: #979797;
+  display: flex;
+  flex-direction: row;
+}
+
+.compareButton {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  background-color: white;
+  border: 1px solid #979797;
+  margin-top: 25px;
+  margin-right: 5px;
+  margin-left: 70px;
+}
+
+.selectButton {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: #32c5bf;
+  margin-top: 25px;
+}
+
+.giftImage {
+  display: flex;
+  flex-direction: row;
+  margin-right: 2px;
+}
+
+.giftList {
+  font-size: 13px;
+  color: #979797;
+  font-weight: medium;
+  margin-bottom: 5px;
 }
