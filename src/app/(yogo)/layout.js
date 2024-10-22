@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { Icon } from "@iconify/react";
+import Image from 'next/image';
+import { Icon } from '@iconify/react';
 import {
   Button,
   Navbar,
@@ -7,37 +7,57 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
-} from "@nextui-org/react";
+  Dropdown,
+  DropdownTrigger,
+} from '@nextui-org/react';
+import styles from '@/app/layout.css';
+import Menu from '@/components/dropdown/menu';
 
 export default function Layout({ children }) {
   return (
     <div>
-      <Navbar isBordered>
+      <Navbar
+        isCompact
+        isBordered
+        variant="sticky"
+        classNames={{ wrapper: 'px-0' }} // 패딩값 소거
+      >
         <NavbarBrand>
           <Link href="/">
             <Image
               src="/images/kt_logo.png"
               alt="kt_logo"
-              width={30}
-              height={25}
+              width={40}
+              height={35}
+              className={styles.ktLogo}
             />
           </Link>
         </NavbarBrand>
         <NavbarContent justify="end">
           <NavbarItem>
-            <Button variant="light">
+            <Button isIconOnly variant="light" size="sm">
               <Icon
                 icon="solar:headphones-round-outline"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               />
             </Button>
           </NavbarItem>
-          <NavbarItem>
-            <Button variant="light">
-              <Icon icon="solar:hamburger-menu-linear" width={40} height={40} />
-            </Button>
-          </NavbarItem>
+          <Dropdown placement="bottom-right">
+            <NavbarItem className={styles.menu}>
+              <DropdownTrigger>
+                <Button isIconOnly variant="light" size="sm">
+                  <Icon
+                    icon="solar:hamburger-menu-linear"
+                    width={30}
+                    height={30}
+                  />
+                </Button>
+              </DropdownTrigger>
+            </NavbarItem>
+            {/* Menu 컴포넌트 추가 */}
+            <Menu />
+          </Dropdown>
         </NavbarContent>
       </Navbar>
 
