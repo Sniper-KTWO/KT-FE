@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import {
@@ -22,15 +22,13 @@ export default function Layout({ children, modal }) {
   const router = useRouter();
   const pathname = usePathname(); // 현재 경로 가져오기
 
-  console.log("Current Pathname: ", pathname); // 콘솔에 경로 출력
-
-  const openModal = () => {
-    router.push("/modal"); // 모달 경로로 이동
-  };
-
   const goToCompare = () => {
     router.push("/yogoCompare"); // 요금제 비교 페이지로 이동
   };
+
+  const chatModalHandler = useCallback(() => {
+    router.push("/chatBot"); // 챗봇 페이지로 이동
+  }, [router]);
 
   return (
     <div>
@@ -71,7 +69,12 @@ export default function Layout({ children, modal }) {
               </Tooltip>
             )}
             <Tooltip content="챗봇">
-              <Button isIconOnly variant="light" size="sm" onPress={openModal}>
+              <Button
+                isIconOnly
+                variant="light"
+                size="sm"
+                onPress={chatModalHandler}
+              >
                 <Icon
                   icon="solar:headphones-round-outline"
                   width={30}
@@ -99,6 +102,7 @@ export default function Layout({ children, modal }) {
       </Navbar>
 
       {children}
+      {modal}
     </div>
   );
 }
