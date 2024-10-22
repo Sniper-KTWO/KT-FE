@@ -16,7 +16,7 @@ import slider10 from '../../../public/images/home_slider/slider10.png';
 import slider11 from '../../../public/images/home_slider/slider11.png';
 import slider12 from '../../../public/images/home_slider/slider12.png';
 import Image from 'next/image';
-import '@/app/(yogo)/(home)/styles/slider.css';
+import './styles/slider.css';
 
 const images = [
   slider1,
