@@ -1,7 +1,7 @@
 "use client";
 
 import { DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import styles from "@/components/dropdown/styles/menu.css";
+import styles from "@/components/dropdown/styles/menu.module.css";
 
 export default function Menu() {
   const menulist = [
