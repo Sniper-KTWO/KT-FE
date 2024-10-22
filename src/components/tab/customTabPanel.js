@@ -1,9 +1,12 @@
 "use client";
 
+import React from "react";
 import { useState, useEffect } from "react";
-import { Card, CardBody } from "@nextui-org/react";
+import styles from "@/components/tab/styles/customTab.module.css";
+import Filter from "../dropdown/filter";
+import CustomTabCard from "./customTabCard";
 
-export default function CustomTabPanel() {
+export default function CustomTabPanel({ searchText }) {
   // API에서 가져온 데이터를 저장할 상태 변수
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true); // 로딩 상태
@@ -18,7 +21,9 @@ export default function CustomTabPanel() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          query: "요금제",
+          page: 0,
+          size: 9999,
+          searchText: searchText,
         }),
       });
 
@@ -49,22 +54,22 @@ export default function CustomTabPanel() {
     return <p>에러가 발생했습니다: {error}</p>;
   }
 
-  console.log(data.totalSize);
+  // 5G 데이터일 때만 보이게 어케 하지...
+  //   const fivegData = data.planMetas.filter((plan) => plan.net === "5G");
+  //   console.log(fivegData);
 
   return (
-    <p>
-      {data.totalSize}개의 결과
-      {/* API에서 가져온 데이터가 배열일 때 데이터를 반복 출력 */}
-      {/* {data && data.length > 0 ? (
-          data.map((item, index) => (
-            <div key={index}>
-              <p>{item.title}</p>
-              <p>{item.description}</p>
-            </div>
-          ))
-        ) : (
-          <p>데이터가 없습니다.</p>
-        )} */}
-    </p>
+    <>
+      {/* 필터 컴포넌트 */}
+      <div className={styles.filter}>
+        <div className={styles.result}>{data.totalSize}개의 결과</div>
+        <div className={styles.filter2}>
+          <Filter />
+        </div>
+      </div>
+
+      {/* 데이터를 출력할 컴포넌트 */}
+      <CustomTabCard data={data} />
+    </>
   );
 }
