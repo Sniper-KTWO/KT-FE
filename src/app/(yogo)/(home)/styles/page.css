@@ -3,3 +3,52 @@
   max-width: 390px;
   margin: 0 auto;
 }
+
+.clickableAreaContainer {
+  position: relative;
+}
+
+.clickableArea1 {
+  position: absolute;
+  top: 236px;
+  left: 47px;
+  width: 295px;
+  height: 40px;
+  display: block;
+}
+
+.clickableArea2 {
+  position: absolute;
+  top: 289px;
+  left: 47px;
+  width: 295px;
+  height: 40px;
+  display: block;
+}
+
+.clickableArea3 {
+  position: absolute;
+  top: 500px;
+  left: 47px;
+  width: 295px;
+  height: 40px;
+  display: block;
+}
+
+.clickableArea4 {
+  position: absolute;
+  top: 550px;
+  left: 47px;
+  width: 295px;
+  height: 40px;
+  display: block;
+}
+
+.clickableArea5 {
+  position: absolute;
+  top: 761px;
+  left: 47px;
+  width: 295px;
+  height: 40px;
+  display: block;
+}
