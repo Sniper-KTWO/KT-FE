@@ -1,0 +1,22 @@
+/* menu.module.css */
+.menuList {
+  display: flex;
+}
+
+.menuList:hover {
+  color: #01a69f; /* 호버 시 약간 투명한 mint */
+}
+
+.filter {
+  width: 90px;
+  height: 30px;
+  border-radius: 35px;
+  border: 1px solid #979797;
+  background-color: white;
+  font-size: 12px;
+}
+
+.filterIcon {
+  width: 15px;
+  height: 15px;
+}
