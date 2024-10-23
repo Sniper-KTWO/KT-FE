@@ -11,7 +11,7 @@
 </p>
 
 ### 요고 브랜드 스토리 
-![image2](https://github.com/user-attachments/assets/a76d9a90-57a6-42fa-8a41-52e63387300b)
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/a76d9a90-57a6-42fa-8a41-52e63387300b">
 
 ### 요금제 변경 페이지
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/0be2384b-2a1a-4b34-9b17-ef89bc4e75ba">
