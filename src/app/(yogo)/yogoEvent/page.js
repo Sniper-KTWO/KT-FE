@@ -123,13 +123,27 @@ export default function YogoEvent() {
         height={116.48}
         className={styles.image2_4}
       ></Image>
-      <Image
-        src="/images/2-5.png"
-        alt="2-5 이미지"
-        width={390}
-        height={292.24}
-        className={styles.image2_5}
-      ></Image>
+      <div className={styles.clickableAreaContainer}>
+        <Image
+          src="/images/2-5.png"
+          alt="2-5 이미지"
+          width={390}
+          height={292.24}
+          className={styles.image2_5}
+        ></Image>
+        <a
+          href="https://m.shop.kt.com:444/m/mobile/products.do?=&category=mobile&pplId=0947"
+          className={styles.clickableArea1}
+        ></a>
+        <a
+          href="https://m.shop.kt.com:444/m/direct/directUsim.do"
+          className={styles.clickableArea2}
+        ></a>
+        <a
+          href="https://m.shop.kt.com:444/m/direct/directChangeRate.do"
+          className={styles.clickableArea3}
+        ></a>
+      </div>
       <div className={styles.yogoEvent_video}>
         <div className={styles.videoContainer1}>
           <iframe
@@ -229,13 +243,19 @@ export default function YogoEvent() {
           {/*클릭하여 이동*/}
         </a>
       </div>
-      <Image
-        src="/images/2-9.png"
-        alt="요고 요금제 시즌2 혜택 이미지"
-        width={390}
-        height={1022.84}
-        id="target-div1"
-      />
+      <div className={styles.clickableAreaContainer}>
+        <Image
+          src="/images/2-9.png"
+          alt="요고 요금제 시즌2 혜택 이미지"
+          width={390}
+          height={1022.84}
+          id="target-div1"
+        />
+        <a
+          href="https://m.product.kt.com/mDic/productDetail.do?ItemCode=1567&benefit=season2"
+          className={styles.clickableArea4}
+        ></a>
+      </div>
       <Image
         src="/images/2-10.png"
         alt="요고 요금제 데이터 혜택 이미지"
@@ -272,12 +292,18 @@ export default function YogoEvent() {
         width={390}
         height={673.92}
       />
-      <Image
-        src="/images/2-15.png"
-        alt="요고 요금제 요고뭉치 이미지"
-        width={390}
-        height={500.24}
-      />
+      <div className={styles.clickableAreaContainer}>
+        <Image
+          src="/images/2-15.png"
+          alt="요고 요금제 요고뭉치 이미지"
+          width={390}
+          height={500.24}
+        />
+        <a
+          href="https://m.shop.kt.com:444/m/display/olhsPlan.do?plnDispNo=2389"
+          className={styles.clickableArea5}
+        ></a>
+      </div>
       <Image
         src="/images/2-16.png"
         alt="요고 요금제 시즌2 하단 배너 이미지"

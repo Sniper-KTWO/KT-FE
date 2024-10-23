@@ -412,6 +412,37 @@
   padding-bottom: 39.76px;
 }
 
+.clickableAreaContainer {
+  position: relative;
+}
+
+.clickableArea1 {
+  position: absolute;
+  top: 65px;
+  left: 33px;
+  width: 331px;
+  height: 40px;
+  display: block;
+}
+
+.clickableArea2 {
+  position: absolute;
+  top: 117px;
+  left: 33px;
+  width: 331px;
+  height: 40px;
+  display: block;
+}
+
+.clickableArea3 {
+  position: absolute;
+  top: 170px;
+  left: 33px;
+  width: 331px;
+  height: 40px;
+  display: block;
+}
+
 .yogoEvent_video {
   width: 390px;
   height: 953.16px;
@@ -452,6 +483,15 @@
   position: "relative";
 }
 
+.clickableArea4 {
+  position: absolute;
+  top: 840px;
+  left: 47px;
+  width: 290px;
+  height: 40px;
+  display: block;
+}
+
 .mintContainer {
   background-color: #f1fffe;
   height: 500px;
@@ -459,6 +499,15 @@
 
 .dataTable {
   padding-top: 30px;
+}
+
+.clickableArea5 {
+  position: absolute;
+  top: 406px;
+  left: 52px;
+  width: 287px;
+  height: 42px;
+  display: block;
 }
 
 .bottomContainer {
