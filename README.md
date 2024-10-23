@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 1. 페이지 소개
+1) 요고 다이렉트 페이지
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/7e269de7-af55-45f2-b70b-1231b404f904">
+  - 이미지 슬라이더
 
-## Getting Started
+2) 요고 가입 혜택
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/4dad8ca1-bd0c-4256-a404-fdd778475a67">
+  - 증감 슬라이더 
 
-First, run the development server:
+3)요고 브랜드 스토리 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+4) 요금제 변경 페이지
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/0be2384b-2a1a-4b34-9b17-ef89bc4e75ba">
+  - 탭
+  - 필터링
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5) 비교함 페이지
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+6) 챗봇 (시나리오봇)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 2. 프로젝트 구조
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 3. 버전
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
