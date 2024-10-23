@@ -1,8 +1,11 @@
+import { Card } from "@nextui-org/react";
+import CustomTab from "@/components/tab/customTab";
+import "./styles/page.css";
+
 export default function yogoChange() {
   return (
-    <div>
-      <h1>요고 요금제 변경</h1>
+    <div className="homeStyle">
+      <CustomTab />
     </div>
   );
 }
-// 요고 요금제 변경

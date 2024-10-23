@@ -1,5 +1,5 @@
 /* nextui 적용 */
-const { nextui } = require("@nextui-org/react");
+const { nextui, commonColors } = require("@nextui-org/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -19,10 +19,21 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        green: {
+          200: "#bbf7d0",
+          300: "#86efac",
+          400: "#4ade80",
+          500: "#22c55e",
+          600: "#01A69F",
+        },
       },
     },
   },
   /* nextui 적용 */
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      addCommonColors: true,
+    }),
+  ],
 };
