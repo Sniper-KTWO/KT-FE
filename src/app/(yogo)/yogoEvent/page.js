@@ -319,6 +319,7 @@ export default function YogoEvent() {
         />
         <span className={styles.mustCheckText}>꼭 확인하세요.</span>
       </div>
+
       <div className={styles.dropdownContainer}>
         {/* 드롭다운 버튼과 내용 */}
         <button onClick={toggleDropdown1} className={styles.dropdownButton1}>
