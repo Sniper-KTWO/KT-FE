@@ -3,18 +3,18 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
 import './styles/compare_modal.css';
 import { useRouter } from 'next/navigation';
-import { useCompare } from './CompareContext';
+import { useCompare } from './compareContext';
 
 function CompareModal() {
   const { selectedItems, addItem, removeItem, getNextItemId } = useCompare();
   const [itemId, setItemId] = useState(null);
   const router = useRouter();
 
-  useEffect(() => {
-    if (itemId === null) {
-      setItemId(getNextItemId());
-    }
-  }, [getNextItemId, itemId]);
+  // useEffect(() => {
+  //   if (itemId === null) {
+  //     setItemId(getNextItemId());
+  //   }
+  // }, [getNextItemId, itemId]);
 
   const handleCompareClick = () => {
     if (itemId !== null) {
