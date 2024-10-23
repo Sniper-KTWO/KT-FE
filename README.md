@@ -52,11 +52,17 @@
 
 ## 3. 버전
 **Dependencies**
-    - **Next.js**: v14.2.15
-    - **React**: v18.3.1
-    - **React DOM**: v18.3.1
-    - **Slick Carousel**: v1.8.1
-    - **Sharp**: v0.33.5
+|Dependencies|버전|
+|------|---|
+|Next.js|v14.2.15|
+|React|v18.3.1|
+|React DOM|v18.3.1|
+|Slick Carousel|v1.8.1|
+|Sharp|v0.33.5|
+|TailwindCSS|v0.33.5|
+
 **Dev Dependencies**
-    - **TailwindCSS**: v3.4.1
-    - **ESLint**: v8.x
+|Dev Dependencies|버전|
+|------|---|
+|Sharp|v3.4.1|
+|ESLint|v8.x|
