@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import styles from "@/components/dropdown/styles/menu.css";
+import { DropdownMenu, DropdownItem, Button } from '@nextui-org/react';
+import styles from '../dropdown/styles/menu.css';
 
 export default function Menu() {
   const menulist = [
-    { name: "요고 다이렉트", url: "/" },
-    { name: "요고 가입 혜택", url: "/yogoEvent" },
-    { name: "요고 브랜드 스토리", url: "/yogoBrand" },
-    { name: "요고 요금제 변경", url: "/yogoChange" },
+    { name: '요고 다이렉트', url: '/' },
+    { name: '요고 가입 혜택', url: '/yogoEvent' },
+    { name: '요고 브랜드 스토리', url: '/yogoBrand' },
+    { name: '요고 요금제 변경', url: '/yogoChange' },
   ];
 
   return (

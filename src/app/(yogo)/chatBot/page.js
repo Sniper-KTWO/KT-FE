@@ -1,8 +1,8 @@
-"use client";
-import styles from "./styles/page.module.css";
-import { Input, Button } from "@nextui-org/react";
-import { Icon } from "@iconify/react";
-import SendButton from "@/components/send";
+'use client';
+import styles from './styles/page.module.css';
+import { Input, Button } from '@nextui-org/react';
+import { Icon } from '@iconify/react';
+import SendButton from '../../../components/send';
 
 export default function chatBot() {
   return (

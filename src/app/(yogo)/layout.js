@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React, { useCallback } from "react";
-import Image from "next/image";
-import { Icon } from "@iconify/react";
+import React, { useCallback } from 'react';
+import Image from 'next/image';
+import { Icon } from '@iconify/react';
 import {
   Button,
   Navbar,
@@ -13,21 +13,21 @@ import {
   Dropdown,
   DropdownTrigger,
   Tooltip,
-} from "@nextui-org/react";
-import styles from "@/app/layout.css";
-import Menu from "@/components/dropdown/menu";
-import { useRouter, usePathname } from "next/navigation"; // 전체 경로 가져오기
+} from '@nextui-org/react';
+import styles from '../../app/layout.css';
+import Menu from '../../components/dropdown/menu';
+import { useRouter, usePathname } from 'next/navigation'; // 전체 경로 가져오기
 
 export default function Layout({ children, modal }) {
   const router = useRouter();
   const pathname = usePathname(); // 현재 경로 가져오기
 
   const goToCompare = () => {
-    router.push("/yogoCompare"); // 요금제 비교 페이지로 이동
+    router.push('/yogoCompare'); // 요금제 비교 페이지로 이동
   };
 
   const chatModalHandler = useCallback(() => {
-    router.push("/chatBot"); // 챗봇 페이지로 이동
+    router.push('/chatBot'); // 챗봇 페이지로 이동
   }, [router]);
 
   return (
@@ -35,7 +35,7 @@ export default function Layout({ children, modal }) {
       <Navbar
         isBordered
         variant="sticky"
-        classNames={{ wrapper: "px-0" }} // 패딩값 소거
+        classNames={{ wrapper: 'px-0' }} // 패딩값 소거
       >
         <NavbarBrand>
           <Link href="/">
@@ -51,14 +51,14 @@ export default function Layout({ children, modal }) {
         <NavbarContent justify="end">
           <NavbarItem>
             {/* 특정 경로(/yogoChange)에서만 아이콘 추가 */}
-            {pathname === "/yogoChange" && (
+            {pathname === '/yogoChange' && (
               <Tooltip content="요금제 비교함">
                 <Button
                   isIconOnly
                   variant="light"
                   size="sm"
                   onPress={goToCompare} // 요금제 비교 페이지로 이동
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: '10px' }}
                 >
                   <Icon
                     icon="material-symbols:download"
