@@ -60,6 +60,7 @@
 |Slick Carousel|v1.8.1|
 |Sharp|v0.33.5|
 |TailwindCSS|v0.33.5|
+|@nextui-org/react|v2.4.8|
 
 **Dev Dependencies**
 |Dev Dependencies|버전|
