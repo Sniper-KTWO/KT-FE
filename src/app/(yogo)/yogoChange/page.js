@@ -1,13 +1,8 @@
-'use client';
-import React from 'react';
-import ChangeMenu from '../../../components/change/change_menu';
-import { Button } from '@nextui-org/react';
-import './styles/page.css';
-import { CompareProvider } from '../../../components/modal/CompareContext';
 import { Card } from '@nextui-org/react';
-import CustomTab from '../../../components/tab/customTab';
+import CustomTab from '@/components/tab/customTab';
+import './styles/page.css';
 
-export default function YogoChange() {
+export default function yogoChange() {
   return (
     <div className="homeStyle">
       <CustomTab />
