@@ -1,14 +1,45 @@
 "use client";
 import styles from "./styles/yogoEvent.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
+import SwitchContentLeft from "../../../components/plusMinusSlider/uncheckedLeftData";
+import SwitchContentRight from "../../../components/plusMinusSlider/uncheckedRightData";
+import CheckBoxContentLeft from "../../../components/checkBox/checkedLeftData";
+import CheckBoxContentRight from "../../../components/checkBox/checkedRightData";
 
 export default function YogoEvent() {
-  const [width, setWidth] = useState(100); // 기본 사이즈 100
-  const handleChange = (e) => {
-    setWidth(e.target.value); // 입력된 값으로 가로 크기 변경
+  //증감 슬라이더_체크박스 기능
+  const [isToggled, setIsToggled] = useState(false);
+  const handleToggle = () => {
+    setIsToggled(!isToggled);
   };
 
+  // step 상태 정의
+  const [step, setStep] = useState(7); // 기본값 7단계
+  const maxSteps = 13; // 최대 13단계
+  const minSteps = 1; // 최소 1단계
+
+  // 단계 증가 함수
+  const handleIncrease = () => {
+    if (step < maxSteps) {
+      setStep(step + 1);
+    }
+  };
+
+  // 단계 감소 함수
+  const handleDecrease = () => {
+    if (step > minSteps) {
+      setStep(step - 1);
+    }
+  };
+
+  // tab 기능
+  const [isOn, setIsOn] = useState(false);
+  const toggleSwitch = () => {
+    setIsOn(!isOn);
+  };
+
+  //footer 드롭다운 기능
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
 
@@ -19,6 +50,14 @@ export default function YogoEvent() {
   const toggleDropdown2 = () => {
     setIsOpen2(!isOpen2);
   };
+
+  // 체크박스와 슬라이더 상태에 따른 컴포넌트 선택
+  let ContentComponent;
+  if (isToggled) {
+    ContentComponent = isOn ? CheckBoxContentRight : CheckBoxContentLeft;
+  } else {
+    ContentComponent = isOn ? SwitchContentRight : SwitchContentLeft;
+  }
 
   return (
     <div className={styles.container}>
@@ -37,16 +76,44 @@ export default function YogoEvent() {
       ></Image>
       <div className={styles.sliderBarPart}>
         {/*슬라이더바 들어갈 위치*/}
-        <div style={{ marginTop: "20px", border: "1px solid gray" }}>
-          <span
-            style={{
-              display: "inline-block",
-              width: `${width}px`,
-              backgroundColor: "lightblue",
-            }}
-          >
-            수치조절부분{" "}
-          </span>
+        <div className={styles.firstBox}>
+          <p className={styles.textbox1}>Y에겐 데이터가 2배!</p>
+          <div className={styles.checkbox}>
+            <p className={styles.textbox2}> 34세 이하의 Y라면? Y덤 혜택받기!</p>
+            <div onClick={handleToggle} style={{ cursor: "pointer" }}>
+              {isToggled ? (
+                <img
+                  src="/images/checked-icon.png"
+                  alt="체크됨"
+                  width="16.64"
+                  height="16.64"
+                />
+              ) : (
+                <img
+                  src="/images/unchecked-icon.png"
+                  alt="체크 안됨"
+                  width="16.64"
+                  height="16.64"
+                />
+              )}
+            </div>
+          </div>
+          <div className={styles.borderContainer}></div>
+          <div className={styles.switchContainer}>
+            <p className={styles.textbox3}>데이터 용량</p>
+            <div className={styles.switchTab} onClick={toggleSwitch}>
+              <div className={`${styles.switch} ${isOn ? styles.on : ""}`}>
+                <div className={styles.switchThumb}></div>
+              </div>
+            </div>
+            <p className={styles.textbox4}>월정액</p>
+          </div>
+          <div className={styles.borderContainer2}></div>
+          <ContentComponent
+            step={step}
+            handleIncrease={handleIncrease}
+            handleDecrease={handleDecrease}
+          />
         </div>
       </div>
       <Image
@@ -56,13 +123,27 @@ export default function YogoEvent() {
         height={116.48}
         className={styles.image2_4}
       ></Image>
-      <Image
-        src="/images/2-5.png"
-        alt="2-5 이미지"
-        width={390}
-        height={292.24}
-        className={styles.image2_5}
-      ></Image>
+      <div className={styles.clickableAreaContainer}>
+        <Image
+          src="/images/2-5.png"
+          alt="2-5 이미지"
+          width={390}
+          height={292.24}
+          className={styles.image2_5}
+        ></Image>
+        <a
+          href="https://m.shop.kt.com:444/m/mobile/products.do?=&category=mobile&pplId=0947"
+          className={styles.clickableArea1}
+        ></a>
+        <a
+          href="https://m.shop.kt.com:444/m/direct/directUsim.do"
+          className={styles.clickableArea2}
+        ></a>
+        <a
+          href="https://m.shop.kt.com:444/m/direct/directChangeRate.do"
+          className={styles.clickableArea3}
+        ></a>
+      </div>
       <div className={styles.yogoEvent_video}>
         <div className={styles.videoContainer1}>
           <iframe
@@ -104,7 +185,7 @@ export default function YogoEvent() {
       ></Image>
       <div className={styles.yogoEvent_benefits}>
         <Image
-          src="/images/yogo_event_benefits.png"
+          src="/images/2-8.png"
           alt="요고 요금제 혜택 이미지"
           width={390}
           height={590}
@@ -162,15 +243,21 @@ export default function YogoEvent() {
           {/*클릭하여 이동*/}
         </a>
       </div>
+      <div className={styles.clickableAreaContainer}>
+        <Image
+          src="/images/2-9.png"
+          alt="요고 요금제 시즌2 혜택 이미지"
+          width={390}
+          height={1022.84}
+          id="target-div1"
+        />
+        <a
+          href="https://m.product.kt.com/mDic/productDetail.do?ItemCode=1567&benefit=season2"
+          className={styles.clickableArea4}
+        ></a>
+      </div>
       <Image
-        src="/images/yogo_event_season2_benefits.png"
-        alt="요고 요금제 시즌2 혜택 이미지"
-        width={390}
-        height={1022.84}
-        id="target-div1"
-      />
-      <Image
-        src="/images/yogo_event_data_benefits.png"
+        src="/images/2-10.png"
         alt="요고 요금제 데이터 혜택 이미지"
         width={390}
         height={233.48}
@@ -178,7 +265,7 @@ export default function YogoEvent() {
       />
       <div className={styles.mintContainer}>
         <Image
-          src="/images/yogo_event_dataTable.png"
+          src="/images/2-11.png"
           alt="요고 요금제 데이터 표"
           width={390}
           height={408.57}
@@ -186,46 +273,53 @@ export default function YogoEvent() {
         />
       </div>
       <Image
-        src="/images/yogo_event_membershipPromotion.png"
+        src="/images/2-12.png"
         alt="요고 요금제 멤버십 혜택 이미지"
         width={390}
         height={814.84}
         id="target-div3"
       />
       <Image
-        src="/images/yogo_event_coupon.png"
+        src="/images/2-13.png"
         alt="요고 요금제 쿠폰팩 이미지"
         width={390}
         height={930.8}
         id="target-div4"
       />
       <Image
-        src="/images/yogo_event_compare.png"
+        src="/images/2-14.png"
         alt="요고 요금제 알뜰폰 비교 이미지"
         width={390}
         height={673.92}
       />
+      <div className={styles.clickableAreaContainer}>
+        <Image
+          src="/images/2-15.png"
+          alt="요고 요금제 요고뭉치 이미지"
+          width={390}
+          height={500.24}
+        />
+        <a
+          href="https://m.shop.kt.com:444/m/display/olhsPlan.do?plnDispNo=2389"
+          className={styles.clickableArea5}
+        ></a>
+      </div>
       <Image
-        src="/images/yogo_event_yogomungchi.png"
-        alt="요고 요금제 요고뭉치 이미지"
-        width={390}
-        height={500.24}
-      />
-      <Image
-        src="/images/yogo_event_bottomBanner.png"
+        src="/images/2-16.png"
         alt="요고 요금제 시즌2 하단 배너 이미지"
         width={390}
         height={145.6}
       />
       <div className={styles.bottomContainer}>
         <Image
-          src="/images/yogo_event_exclamationMark.png"
+          src="/images/exclamationMark-icon.png"
           alt="요고 요금제 하단 느낌표 아이콘"
           width={19}
           height={19}
         />
         <span className={styles.mustCheckText}>꼭 확인하세요.</span>
       </div>
+
       <div className={styles.dropdownContainer}>
         {/* 드롭다운 버튼과 내용 */}
         <button onClick={toggleDropdown1} className={styles.dropdownButton1}>
