@@ -8,6 +8,7 @@ import {
   AccordionItem,
   Tooltip,
 } from "@nextui-org/react";
+import Link from "next/link";
 import styles from "@/components/tab/styles/customTab.module.css";
 import { Icon } from "@iconify/react";
 
@@ -40,7 +41,7 @@ export default function CustomTabCard({ data }) {
   return (
     <>
       {data.planMetas.map((plan, idx) => (
-        <Card key={idx} className={styles.card}>
+        <Card className={styles.card}>
           <CardBody>
             <div>
               <div className={styles.title}>
@@ -52,26 +53,40 @@ export default function CustomTabCard({ data }) {
                 <p>{plan.name}</p>
               </div>
 
-              <div className={styles.boldText}>
-                <p style={{ paddingRight: "5px" }}>월</p>
-                <p style={{ paddingRight: "5px" }}>{plan.mobileDataStr}</p>
-                <p style={{ paddingRight: "5px" }}>+</p>
-                <p>{plan.mobileDataDateExhaustedDescription}</p>
-              </div>
+              <Link
+                href={{
+                  pathname: `/yogoChange/${idx}`,
+                  query: {
+                    name: plan.name,
+                    mobileDataStr: plan.mobileDataStr,
+                  },
+                }}
+                // as={`/yogoChange/${idx}`}
+                key={idx}
+              >
+                <div className={styles.boldText}>
+                  <p style={{ paddingRight: "5px" }}>월</p>
+                  <p style={{ paddingRight: "5px" }}>{plan.mobileDataStr}</p>
+                  <p style={{ paddingRight: "5px" }}>+</p>
+                  <p>{plan.mobileDataDateExhaustedDescription}</p>
+                </div>
 
-              <div className={styles.info}>
-                <p style={{ paddingRight: "5px" }}>통화</p>
-                <p style={{ paddingRight: "10px" }}>
-                  {plan.mobileMessage === 9999 ? "무제한" : plan.mobileMessage}
-                </p>
-                <p style={{ paddingRight: "10px" }}>|</p>
-                <p style={{ paddingRight: "5px" }}>문자</p>
-                <p style={{ paddingRight: "10px" }}>
-                  {plan.mobileVoice === 9999 ? "무제한" : plan.mobileVoice}
-                </p>
-                <p style={{ paddingRight: "10px" }}>|</p>
-                <p>{plan.net}</p>
-              </div>
+                <div className={styles.info}>
+                  <p style={{ paddingRight: "5px" }}>통화</p>
+                  <p style={{ paddingRight: "10px" }}>
+                    {plan.mobileMessage === 9999
+                      ? "무제한"
+                      : plan.mobileMessage}
+                  </p>
+                  <p style={{ paddingRight: "10px" }}>|</p>
+                  <p style={{ paddingRight: "5px" }}>문자</p>
+                  <p style={{ paddingRight: "10px" }}>
+                    {plan.mobileVoice === 9999 ? "무제한" : plan.mobileVoice}
+                  </p>
+                  <p style={{ paddingRight: "10px" }}>|</p>
+                  <p>{plan.net}</p>
+                </div>
+              </Link>
 
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <p style={{ color: "#01A69F" }} className={styles.boldText}>
