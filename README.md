@@ -1,6 +1,7 @@
 ## 1. 페이지 소개
 1) 요고 다이렉트 페이지
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/7e269de7-af55-45f2-b70b-1231b404f904">
+/n
   - 이미지 슬라이더
 
 2) 요고 가입 혜택
