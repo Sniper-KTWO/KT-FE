@@ -4,7 +4,6 @@
 <p>- 이미지 슬라이더</p>
 ![image](https://github.com/user-attachments/assets/d30f2ab8-a699-4f28-84e3-dcf62c2b0a38)
 
-
 ### 요고 가입 혜택
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/4dad8ca1-bd0c-4256-a404-fdd778475a67">
 <p>  - 증감 슬라이더 
@@ -19,11 +18,45 @@
 <p>  - 필터링</p>
 
 ### 비교함 페이지
+구현중...
 
 ### 챗봇 (시나리오봇)
+구현중...
 
 ## 2. 프로젝트 구조
-
+```
+📦KT-FE
+	┣ 📂public
+	┃  ┗ 📂images
+	┗ 📂src
+	 ┣ 📂app
+	 ┃ ┣ 📂(yogo)
+	 ┃ ┃ ┣ 📂(home)
+	 ┃ ┃ ┣ 📂chatBot
+	 ┃ ┃ ┣ 📂yogoBrand
+	 ┃ ┃ ┣ 📂yogoChange
+	 ┃ ┃ ┣ 📂yogoCompare
+	 ┃ ┃ ┗  📂yogoEvent
+	 ┃ ┗ 📜globals.css
+	 ┗ 📂components
+	 ┃ ┣ 📂change
+	 ┃ ┣ 📂checkBox
+	 ┃ ┣ 📂dropdown
+	 ┃ ┣ 📂plusMinusSlider
+	 ┃ ┣ 📂scrollButton
+	 ┃ ┣ 📂slider
+	 ┃ ┗ 📂tab
+```
+- 전체적으로 Next.js의 App Router 방식을 취함
+- 재사용 가능성이 있는 컴포넌트는 components 폴더 내 위치
 
 ## 3. 버전
-
+**Dependencies**
+    - **Next.js**: v14.2.15
+    - **React**: v18.3.1
+    - **React DOM**: v18.3.1
+    - **Slick Carousel**: v1.8.1
+    - **Sharp**: v0.33.5
+**Dev Dependencies**
+    - **TailwindCSS**: v3.4.1
+    - **ESLint**: v8.x
