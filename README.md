@@ -2,7 +2,7 @@
 ### 요고 다이렉트 페이지
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/7e269de7-af55-45f2-b70b-1231b404f904">
 <p>- 이미지 슬라이더</p>
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/d30f2ab8-a699-4f28-84e3-dcf62c2b0a38">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/d30f2ab8-a699-4f28-84e3-dcf62c2b0a38">
 
 ### 요고 가입 혜택
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/4dad8ca1-bd0c-4256-a404-fdd778475a67">
