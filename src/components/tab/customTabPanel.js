@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import styles from "@/components/tab/styles/customTab.module.css";
 import Filter from "../dropdown/filter";
 import CustomTabCard from "./customTabCard";
+import Loading from "../loading/loading";
 
 export default function CustomTabPanel({ searchText }) {
   // API에서 가져온 데이터를 저장할 상태 변수
@@ -46,7 +47,7 @@ export default function CustomTabPanel({ searchText }) {
 
   // 로딩 상태일 때
   if (loading) {
-    return <p>데이터를 불러오는 중입니다...</p>;
+    return <Loading />;
   }
 
   // 에러가 발생했을 때
