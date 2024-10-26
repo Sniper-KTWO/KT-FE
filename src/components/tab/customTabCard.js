@@ -76,10 +76,13 @@ export default function CustomTabCard({ data }) {
                 <div className={styles.boldText}>
                   <span style={{ paddingRight: "5px" }}>월</span>
                   <span style={{ paddingRight: "5px" }}>
-                    {plan.mobileDataStr}
+                    {plan.mobileDataStr === null ? "0GB" : plan.mobileDataStr}
                   </span>
-                  <span style={{ paddingRight: "5px" }}>+</span>
-                  <span>{plan.mobileDataDateExhaustedDescription}</span>
+                  <span>
+                    {plan.mobileDataDateExhaustedDescription
+                      ? `+${plan.mobileDataDateExhaustedDescription}`
+                      : plan.mobileDataDateExhaustedDescription}
+                  </span>
                 </div>
 
                 <div className={styles.info}>

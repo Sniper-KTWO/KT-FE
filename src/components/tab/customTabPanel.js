@@ -60,7 +60,7 @@ export default function CustomTabPanel({ searchText }) {
       case "금액 높은 순":
         return [...plans].sort((a, b) => b.fee - a.fee); // 내림차순 정렬
       case "데이터 많은 순":
-        return [...plans].sort((a, b) => b.mobileDataTotal - a.mobileDataTotal); // 내림차순 정렬
+        return [...plans].sort((a, b) => b.mobileData - a.mobileData); // 내림차순 정렬
       default:
         return plans;
     }
