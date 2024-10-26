@@ -9,13 +9,18 @@ import {
 import { Icon } from "@iconify/react";
 import styles from "./styles/menu.module.css";
 
-export default function Filter() {
+export default function Filter({ onFilterChange }) {
   const [selected, setSelected] = useState(new Set(["전체"]));
 
   const selectedValue = React.useMemo(
     () => Array.from(selected).join(", ").replaceAll("_", " "),
     [selected]
   );
+
+  const handleFilterChange = (keys) => {
+    setSelected(keys);
+    onFilterChange(Array.from(keys).join(", ")); // 부모 컴포넌트로 선택된 값 전달
+  };
 
   return (
     <>
@@ -32,7 +37,7 @@ export default function Filter() {
             disallowEmptySelection
             selectionMode="single"
             selectedKeys={selected}
-            onSelectionChange={setSelected}
+            onSelectionChange={handleFilterChange}
           >
             <DropdownItem key="전체">전체</DropdownItem>
             <DropdownItem key="금액 낮은 순">금액 낮은 순</DropdownItem>
