@@ -44,7 +44,7 @@ export default function Layout({ children, modal }) {
               alt="kt_logo"
               width={40}
               height={35}
-              className={styles.ktLogo}
+              className="ktLogo"
             />
           </Link>
         </NavbarBrand>
