@@ -29,7 +29,7 @@ export default function Home() {
       ))}
 
       <div className="clickableAreaContainer">
-        <Image src={img3} width={390} height={844} />
+        <Image src={img3} alt="img3" width={390} height={844} />
         <a
           href="https://shop.kt.com/unify/yogo.do"
           className="clickableArea1"
