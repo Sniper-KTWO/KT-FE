@@ -34,6 +34,8 @@ export default function CustomTabCard({ data }) {
         return "/images/kt_logo.png";
       case "LGU":
         return "/images/lgu_logo.png";
+      default:
+        return "/images/phone_default.png";
     }
   };
 
@@ -47,6 +49,8 @@ export default function CustomTabCard({ data }) {
         return "/images/starbucks.png";
       case "cu":
         return "/images/cu.png";
+      default:
+        return "/images/gift.png";
     }
   };
 
@@ -65,7 +69,10 @@ export default function CustomTabCard({ data }) {
                 <p>{plan.name}</p>
               </div>
 
-              <div onClick={() => handleNavigation(plan, idx)}>
+              <div
+                onClick={() => handleNavigation(plan, idx)}
+                style={{ cursor: "pointer" }}
+              >
                 <div className={styles.boldText}>
                   <span style={{ paddingRight: "5px" }}>월</span>
                   <span style={{ paddingRight: "5px" }}>
@@ -108,10 +115,12 @@ export default function CustomTabCard({ data }) {
                 // 혜택이 있을 때
                 <Accordion>
                   <AccordionItem
+                    textValue="혜택 보기"
                     startContent={
                       <div className={styles.giftImage}>
-                        {plan.giftList.map((gift) => (
+                        {plan.giftList.map((gift, giftIdx) => (
                           <Image
+                            key={gift.id || giftIdx}
                             src={giftImageSrc(gift.category)}
                             alt={gift.category}
                             className={styles.giftImage}
