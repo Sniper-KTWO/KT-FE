@@ -6,44 +6,38 @@ import styles from "@/components/tab/styles/customTab.module.css";
 import Filter from "../dropdown/filter";
 import CustomTabCard from "./customTabCard";
 import Loading from "../loading/loading";
+import { useSearchParams } from "next/navigation";
+import Pagination from "../pagination/pagination";
+import { searchPlans } from "@/api/searchPlan";
 
 export default function CustomTabPanel({ searchText }) {
-  // API에서 가져온 데이터를 저장할 상태 변수
-  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true); // 로딩 상태
   const [error, setError] = useState(null); // 에러 상태
+  // API에서 가져온 데이터를 저장할 상태 변수
+  const [data, setData] = useState(null);
+  const [totalItems, setTotalItems] = useState(0);
+  const searchParams = useSearchParams();
+  const currentPage = parseInt(searchParams.get("page")) || 1;
+
+  // 페이지네이션 설정
+  const itemCountPerPage = 10; // 페이지당 항목 수
+  const pageCount = 5; // 한 번에 보여줄 페이지네이션 버튼 수
 
   // 데이터 fetching 함수
-  const fetchData = async () => {
-    try {
-      const response = await fetch("http://3.35.51.214/api/search_plan", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          page: 0,
-          size: 9999,
-          searchText: searchText,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("데이터를 가져오는 데 실패했습니다.");
-      }
-
-      const result = await response.json();
-      setData(result);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    fetchData();
-  }, []);
+    const getData = async () => {
+      try {
+        const result = await searchPlans(searchText); // API 모듈 사용
+        setData(result);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getData();
+  }, [searchText]);
 
   // 로딩 상태일 때
   if (loading) {
@@ -59,6 +53,13 @@ export default function CustomTabPanel({ searchText }) {
   //   const fivegData = data.planMetas.filter((plan) => plan.net === "5G");
   //   console.log(fivegData);
 
+  // 페이지에 맞는 데이터 슬라이스
+  const startIndex = (currentPage - 1) * itemCountPerPage;
+  const currentData = data.planMetas.slice(
+    startIndex,
+    startIndex + itemCountPerPage
+  );
+
   return (
     <>
       {/* 필터 컴포넌트 */}
@@ -70,7 +71,14 @@ export default function CustomTabPanel({ searchText }) {
       </div>
 
       {/* 데이터를 출력할 컴포넌트 */}
-      <CustomTabCard data={data} />
+      <CustomTabCard data={{ ...data, planMetas: currentData }} />
+
+      <Pagination
+        totalItems={data.totalSize}
+        itemCountPerPage={itemCountPerPage}
+        pageCount={pageCount}
+        currentPage={currentPage}
+      />
     </>
   );
 }
