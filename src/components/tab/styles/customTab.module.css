@@ -108,26 +108,28 @@
   color: #01a69f;
   margin-left: auto;
 }
-
 .compareButton {
-  width: 20px;
-  height: 20px;
-  font-size: 12px;
+  width: 65px;
+  height: 23px;
+  font-size: 11px;
+  font-weight: bold;
   background-color: white;
   border: 1px solid #979797;
   margin-top: 25px;
   margin-right: 5px;
   margin-left: 70px;
+  border-radius: 15px;
 }
 
 .selectButton {
-  width: 20px;
-  height: 20px;
-  font-size: 12px;
+  width: 65px;
+  height: 23px;
+  font-size: 11px;
   font-weight: bold;
   color: white;
   background-color: #32c5bf;
   margin-top: 25px;
+  border-radius: 15px;
 }
 
 .compareButton2 {
@@ -170,4 +172,16 @@
   color: #979797;
   font-weight: medium;
   margin-bottom: 5px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 3px;
+  transform: translateX(25px);
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
 }

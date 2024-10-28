@@ -7,6 +7,8 @@ import Loading from "@/components/loading/loading";
 import { Image, Button, Divider } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 import styles from "@/components/tab/styles/customTab.module.css";
+import CompareModal from "@/components/modal/compare_modal";
+import ChangeModal from "@/components/modal/change_modal";
 
 export default function PlanDetailPage() {
   const router = useRouter();
@@ -14,11 +16,11 @@ export default function PlanDetailPage() {
 
   useEffect(() => {
     console.log("zustand에 저장된 plan 데이터:", plan); // 상태 확인용 로그
-
-    if (!plan) {
-      <Loading />;
-    }
   }, [plan]);
+
+  if (!plan) {
+    return <Loading />;
+  }
 
   const ImageSrc = (mno) => {
     switch (mno) {
@@ -113,11 +115,16 @@ export default function PlanDetailPage() {
           <span>{plan.net}</span>
         </div>
 
-        <div>
+        <div className={styles.group}>
           <span style={{ color: "#01A69F" }} className={styles.boldText}>
             <span style={{ paddingRight: "5px" }}>월</span>
             {plan.feeString}원
           </span>
+
+          <div className={styles.buttons}>
+            <CompareModal className={styles.compareButton2} data={plan} />
+            <ChangeModal className={styles.selectButton2} />
+          </div>
         </div>
       </div>
 
@@ -165,18 +172,6 @@ export default function PlanDetailPage() {
             제공되는 혜택이 없습니다
           </div>
         )}
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Button className={styles.compareButton2}>비교하기</Button>
-        <Button className={styles.selectButton2}>변경하기</Button>
       </div>
     </>
   );

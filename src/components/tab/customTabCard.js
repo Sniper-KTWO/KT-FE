@@ -4,13 +4,14 @@ import {
   Card,
   CardBody,
   Image,
-  Button,
   Divider,
   Accordion,
   AccordionItem,
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import styles from "@/components/tab/styles/customTab.module.css";
+import CompareModal from "../modal/compare_modal";
+import ChangeModal from "../modal/change_modal";
 import { usePlanStore } from "@/stores/planStore";
 
 export default function CustomTabCard({ data }) {
@@ -107,9 +108,11 @@ export default function CustomTabCard({ data }) {
                   <span style={{ paddingRight: "5px" }}>월</span>
                   {plan.feeString}원
                 </span>
-
-                <Button className={styles.compareButton}>비교하기</Button>
-                <Button className={styles.selectButton}>변경하기</Button>
+                {/* 버튼 모달 추가 */}
+                <div className={styles.buttons}>
+                  <CompareModal data={plan} />
+                  <ChangeModal />
+                </div>
               </div>
 
               <Divider />
