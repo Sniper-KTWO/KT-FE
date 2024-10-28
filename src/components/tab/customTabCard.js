@@ -89,14 +89,16 @@ export default function CustomTabCard({ data }) {
                 <div className={styles.info}>
                   <span style={{ paddingRight: "5px" }}>통화</span>
                   <span style={{ paddingRight: "10px" }}>
-                    {plan.mobileMessage === 9999
+                    {plan.mobileVoice === 9999
                       ? "무제한"
-                      : plan.mobileMessage}
+                      : plan.mobileVoice + "분"}
                   </span>
                   <span style={{ paddingRight: "10px" }}>|</span>
                   <p style={{ paddingRight: "5px" }}>문자</p>
                   <span style={{ paddingRight: "10px" }}>
-                    {plan.mobileVoice === 9999 ? "무제한" : plan.mobileVoice}
+                    {plan.mobileMessage === 9999
+                      ? "무제한"
+                      : plan.mobileMessage + "건"}
                   </span>
                   <span style={{ paddingRight: "10px" }}>|</span>
                   <span>{plan.net}</span>

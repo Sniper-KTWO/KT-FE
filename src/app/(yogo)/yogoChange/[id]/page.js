@@ -101,13 +101,13 @@ export default function PlanDetailPage() {
             <Icon icon="si:phone-fill" width={15} />
           </span>
           <span style={{ paddingRight: "10px" }}>
-            {plan.mobileMessage === 9999 ? "무제한" : plan.mobileMessage}
+            {plan.mobileVoice === 9999 ? "무제한" : plan.mobileVoice + "분"}
           </span>
           <span style={{ paddingRight: "5px" }}>
             <Icon icon="lets-icons:message-fill" width={15} />
           </span>
           <span style={{ paddingRight: "10px" }}>
-            {plan.mobileVoice === 9999 ? "무제한" : plan.mobileVoice}
+            {plan.mobileMessage === 9999 ? "무제한" : plan.mobileMessage + "건"}
           </span>
           <span style={{ paddingRight: "5px" }}>
             <Icon icon="fluent:cellular-data-1-20-filled" width={15} />

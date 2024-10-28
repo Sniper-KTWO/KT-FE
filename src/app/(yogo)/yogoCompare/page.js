@@ -62,14 +62,16 @@ export default function yogoCompare() {
                     {
                       title: "전화",
                       content:
-                        plan.mobileVoice === 9999 ? "무제한" : plan.mobileVoice,
+                        plan.mobileVoice === 9999
+                          ? "무제한"
+                          : plan.mobileVoice + "분",
                     },
                     {
                       title: "문자",
                       content:
                         plan.mobileMessage === 9999
                           ? "무제한"
-                          : plan.mobileMessage,
+                          : plan.mobileMessage + "건",
                     },
                     { title: "네트워크망", content: plan.net },
                   ].map((detail, index) => (
