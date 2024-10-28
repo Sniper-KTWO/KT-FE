@@ -15,7 +15,12 @@ export default function Menu() {
     <>
       <DropdownMenu aria-label="Actions">
         {menulist.map((item, index) => (
-          <DropdownItem key={index} href={item.url} className={styles.menuList}>
+          <DropdownItem
+            key={index}
+            href={item.url}
+            className={styles.menuList}
+            textValue={item.name}
+          >
             {item.name}
           </DropdownItem>
         ))}
