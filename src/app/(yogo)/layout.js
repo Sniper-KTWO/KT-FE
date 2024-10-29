@@ -51,7 +51,8 @@ export default function Layout({ children, modal }) {
         <NavbarContent justify="end">
           <NavbarItem>
             {/* 특정 경로(/yogoChange)에서만 아이콘 추가 */}
-            {pathname.startsWith("/yogoChange/") && (
+            {(pathname === "/yogoChange" ||
+              pathname.startsWith("/yogoChange/")) && (
               <Tooltip content="요금제 비교함">
                 <Button
                   isIconOnly
