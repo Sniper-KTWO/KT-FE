@@ -57,7 +57,7 @@ export default function CustomTabCard({ data }) {
 
   return (
     <>
-      {data.planMetas.map((plan, idx) => (
+      {data.plans.map((plan, idx) => (
         <Card className={styles.card} key={plan.id || idx}>
           <CardBody>
             <div>

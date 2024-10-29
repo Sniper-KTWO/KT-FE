@@ -9,12 +9,14 @@ import Loading from "../loading/loading";
 import { useSearchParams } from "next/navigation";
 import Pagination from "../pagination/pagination";
 import { searchPlans } from "@/api/searchPlan";
+import { searchPlanFilter } from "@/api/searchPlanFilter";
 
 export default function CustomTabPanel({ searchText }) {
   // API에서 가져온 데이터를 저장할 상태 변수
   const [data, setData] = useState(null);
   const [totalItems, setTotalItems] = useState(0);
   const [filter, setFilter] = useState("전체");
+  const [filterParams, setFilterParams] = useState({}); // 필터 값 저장
   const searchParams = useSearchParams();
   const currentPage = parseInt(searchParams.get("page")) || 1;
   const [loading, setLoading] = useState(true); // 로딩 상태
@@ -50,7 +52,12 @@ export default function CustomTabPanel({ searchText }) {
     return <p>에러가 발생했습니다: {error}</p>;
   }
 
-  // 필터 적용
+  // 첫번째 필터 변경 시
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter);
+  };
+
+  // 첫번째 필터 적용
   const applyFilter = (plans) => {
     switch (filter) {
       case "금액 낮은 순":
@@ -66,13 +73,31 @@ export default function CustomTabPanel({ searchText }) {
     }
   };
 
-  // 필터 변경 시
-  const handleFilterChange = (newFilter) => {
-    setFilter(newFilter);
+  // 두번째 필터 값 변경 시 필터 API 호출
+  // FilterModal로부터 필터 값을 받아 설정하는 함수
+  const handleSearchChange = async ({ minFee, maxFee, network }) => {
+    // 네트워크 타입을 문자열로 변환
+    const networkTypeString = Array.isArray(network)
+      ? network.join(",")
+      : network;
+
+    setFilterParams({ minFee, maxFee, network });
+    setLoading(true);
+    try {
+      const result = await searchPlanFilter(minFee, maxFee, networkTypeString); // 필터 API 호출
+      setData(result);
+      setTotalItems(result.totalSize || 0); // 총 항목 수 업데이트
+      console.log("필터 API 결과:", result);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+    console.log("변경되었습니다.");
   };
 
-  // 필터가 적용된 데이터
-  const filteredData = applyFilter(data.planMetas);
+  // 첫번쨰 필터 or 두번쨰 필터가 적용된 데이터
+  const filteredData = applyFilter(data?.plans || data?.planMetas || []);
 
   // 5G 데이터일 때만 보이게 어케 하지...
   //   const fivegData = data.planMetas.filter((plan) => plan.net === "5G");
@@ -80,10 +105,10 @@ export default function CustomTabPanel({ searchText }) {
 
   // 페이지에 맞는 데이터 슬라이스
   const startIndex = (currentPage - 1) * itemCountPerPage;
-  const currentData = filteredData.slice(
-    startIndex,
-    startIndex + itemCountPerPage
-  );
+  const currentData =
+    filteredData.length > 0
+      ? filteredData.slice(startIndex, startIndex + itemCountPerPage)
+      : [];
 
   return (
     <>
@@ -91,12 +116,15 @@ export default function CustomTabPanel({ searchText }) {
       <div className={styles.filter}>
         <div className={styles.result}>{data.totalSize}개의 결과</div>
         <div className={styles.filter2}>
-          <Filter onFilterChange={handleFilterChange} />
+          <Filter
+            onFilterChange={handleFilterChange}
+            onSearchChange={handleSearchChange}
+          />
         </div>
       </div>
 
       {/* 데이터를 출력할 컴포넌트 */}
-      <CustomTabCard data={{ ...data, planMetas: currentData }} />
+      <CustomTabCard data={{ plans: currentData }} />
 
       <Pagination
         totalItems={data.totalSize}
