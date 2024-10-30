@@ -9,10 +9,33 @@
 .chatContainer {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 60px;
+  padding-bottom: 80px;
 }
 
-.bubbleContainer {
+.senderLabel {
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+  margin-left: 9px;
+  margin-top: 10px;
+}
+
+.bubbleContainer_user {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.userText {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 65%;
+  color: #333;
+  text-align: right;
+}
+
+.bubbleContainer1 {
   background-color: white;
   border-top-left-radius: 3px;
   border-top-right-radius: 15px;
@@ -20,7 +43,7 @@
   border-bottom-right-radius: 15px;
   max-width: 65%;
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
   padding-bottom: 8px;
 }
 
@@ -70,6 +93,18 @@
   margin-bottom: 10px;
 }
 
+.bubbleContainer2 {
+  background-color: white;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  max-width: 65%;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding-bottom: 8px;
+}
+
 .buttonGroup {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3열 구성 */
@@ -94,6 +129,65 @@
   justify-content: center;
   text-align: center;
   color: #000000;
+}
+
+.bubbleContainer_user {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.userText {
+  background-color: #74aa9d;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  max-width: 65%;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  color: black;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 11px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.bubbleContainer3 {
+  background-color: white;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  max-width: 65%;
+  margin-left: 10px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.yogoPlan_title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 11px;
+  color: #000000;
+  padding-bottom: 6px;
+}
+
+.yogoPlan_content {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 11px;
+  color: #000000;
+  white-space: pre-line; /* 개행 처리를 활성화 */
+  line-height: 1.5; /* 줄 간격 조정 */
 }
 
 .inputContainer {
