@@ -1,33 +1,134 @@
 .page {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100vh;
   overflow: hidden;
   background-color: #e0f6f4;
 }
 
+.chatContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 60px;
+}
+
+.bubbleContainer {
+  background-color: white;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  max-width: 65%;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding-bottom: 8px;
+}
+
+.textbox {
+  padding: 10px 15px;
+}
+
+.title {
+  margin-bottom: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 15px;
+}
+
+.text2,
+.text3,
+.text4,
+.text5,
+.text6,
+.text7,
+.text8 {
+  margin: 5px 0;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 11px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.text3,
+.text6,
+.text7 {
+  margin-bottom: 10px;
+}
+
+.buttonGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3열 구성 */
+  gap: 8px;
+  padding: 10px;
+}
+
+.button {
+  border: 0.7px solid #dfdfdf;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+  padding: 8px 16px;
+  cursor: pointer;
+  text-align: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000000;
+}
+
 .inputContainer {
   position: fixed;
-  display: flex;
-  justify-content: center;
   bottom: 0;
   left: 0;
   width: 100%;
+  display: flex;
+  justify-content: center;
   padding-bottom: 10px;
+  padding-top: 7px;
+  background-color: white;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px;
 }
 
 .inputField {
-  width: 300px;
+  width: 350px;
   border-radius: 15px;
+  background-color: white;
 }
 
 .iconContainer {
   display: flex;
   align-items: center;
   cursor: pointer;
+  right: 15px;
 }
 
 .sendIcon {
-  margin-right: 8px;
+  margin-bottom: 5px;
 }
