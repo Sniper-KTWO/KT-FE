@@ -4,13 +4,14 @@ import {
   Card,
   CardBody,
   Image,
-  Button,
   Divider,
   Accordion,
   AccordionItem,
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import styles from "@/components/tab/styles/customTab.module.css";
+import CompareModal from "../modal/compare_modal";
+import ChangeModal from "../modal/change_modal";
 import { usePlanStore } from "@/stores/planStore";
 
 export default function CustomTabCard({ data }) {
@@ -56,7 +57,7 @@ export default function CustomTabCard({ data }) {
 
   return (
     <>
-      {data.planMetas.map((plan, idx) => (
+      {data.plans.map((plan, idx) => (
         <Card className={styles.card} key={plan.id || idx}>
           <CardBody>
             <div>
@@ -88,14 +89,16 @@ export default function CustomTabCard({ data }) {
                 <div className={styles.info}>
                   <span style={{ paddingRight: "5px" }}>통화</span>
                   <span style={{ paddingRight: "10px" }}>
-                    {plan.mobileMessage === 9999
+                    {plan.mobileVoice === 9999
                       ? "무제한"
-                      : plan.mobileMessage}
+                      : plan.mobileVoice + "분"}
                   </span>
                   <span style={{ paddingRight: "10px" }}>|</span>
                   <p style={{ paddingRight: "5px" }}>문자</p>
                   <span style={{ paddingRight: "10px" }}>
-                    {plan.mobileVoice === 9999 ? "무제한" : plan.mobileVoice}
+                    {plan.mobileMessage === 9999
+                      ? "무제한"
+                      : plan.mobileMessage + "건"}
                   </span>
                   <span style={{ paddingRight: "10px" }}>|</span>
                   <span>{plan.net}</span>
@@ -107,9 +110,11 @@ export default function CustomTabCard({ data }) {
                   <span style={{ paddingRight: "5px" }}>월</span>
                   {plan.feeString}원
                 </span>
-
-                <Button className={styles.compareButton}>비교하기</Button>
-                <Button className={styles.selectButton}>변경하기</Button>
+                {/* 버튼 모달 추가 */}
+                <div className={styles.buttons}>
+                  <CompareModal data={plan} />
+                  <ChangeModal />
+                </div>
               </div>
 
               <Divider />
