@@ -1,4 +1,11 @@
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  query,
+  where,
+  doc,
+  getDoc,
+} from "firebase/firestore";
 import { db } from "./firebase";
 
 export const getInitialMessage = async () => {
@@ -19,34 +26,7 @@ export const getInitialMessage = async () => {
     return null;
   }
 };
-{
-  /*
-export const getSecondResponse = async () => {
-  if (typeof window === "undefined") return null;
-  try {
-    const q = query(
-      collection(db, "responses"),
-      where("id", "==", "secondResponse")
-    );
-    const querySnapshot = await getDocs(q);
 
-    if (!querySnapshot.empty) {
-      const data = querySnapshot.docs[0].data();
-      // buttons 필드를 JSON 객체로 파싱
-      if (data.buttons) {
-        data.buttons = JSON.parse(data.buttons);
-        console.log("파싱된 buttons 데이터:", data.buttons);
-      }
-      return data;
-    }
-    return null;
-  } catch (error) {
-    console.error("Firestore 데이터 가져오기 에러: ", error);
-    return null;
-  }
-};
-*/
-}
 export const getSecondResponse = async () => {
   if (typeof window === "undefined") return null;
   try {
@@ -70,6 +50,24 @@ export const getSecondResponse = async () => {
     return null;
   } catch (error) {
     console.error("Firestore 데이터 가져오기 에러: ", error);
+    return null;
+  }
+};
+
+export const getMessageData = async (action) => {
+  if (typeof window === "undefined") return null;
+  try {
+    const docRef = doc(db, "messages", action); // messages 컬렉션의 특정 문서 참조
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      return docSnap.data(); // 문서 데이터를 반환
+    } else {
+      console.log("No such document!");
+      return null;
+    }
+  } catch (error) {
+    console.error("Firestore 메시지 가져오기 에러: ", error);
     return null;
   }
 };
