@@ -1,0 +1,11 @@
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.iconContainer:hover {
+  transform: scale(1.1);
+}

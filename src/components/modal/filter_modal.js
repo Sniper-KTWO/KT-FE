@@ -15,10 +15,6 @@ function FilterModal({ onSearchChange }) {
   const [minFee, setMinFee] = useState(0);
   const [maxFee, setMaxFee] = useState(70000);
 
-  // const onSearchChange = ({ minFee, maxFee, network }) => {
-  //   setLoading(true);
-  // };
-
   const handleKTClick = () => {
     setIsKTActive((prevState) => !prevState);
   };
@@ -58,16 +54,10 @@ function FilterModal({ onSearchChange }) {
         network: selectedNetWorks,
       });
     }
-
-    console.log("min:", minFee);
-    console.log("max:", maxFee);
-    console.log("network:", selectedNetWorks);
-
     dialogRef.current?.close();
   };
 
   return (
-    <div style={{ height: "auto" }}>
       <Button auto light className={styles.filter} onClick={showModal}>
         <Icon icon="rivet-icons:filter" className={styles.filterIcon} />
         필터
