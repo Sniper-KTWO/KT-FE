@@ -44,14 +44,15 @@ export default function Layout({ children, modal }) {
               alt="kt_logo"
               width={40}
               height={35}
-              className={styles.ktLogo}
+              className="ktLogo"
             />
           </Link>
         </NavbarBrand>
         <NavbarContent justify="end">
           <NavbarItem>
             {/* 특정 경로(/yogoChange)에서만 아이콘 추가 */}
-            {pathname === "/yogoChange" && (
+            {(pathname === "/yogoChange" ||
+              pathname.startsWith("/yogoChange/")) && (
               <Tooltip content="요금제 비교함">
                 <Button
                   isIconOnly

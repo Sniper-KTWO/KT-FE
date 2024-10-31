@@ -58,7 +58,6 @@ function FilterModal({ onSearchChange }) {
   };
 
   return (
-    <div>
       <Button auto light className={styles.filter} onClick={showModal}>
         <Icon icon="rivet-icons:filter" className={styles.filterIcon} />
         필터

@@ -1,18 +1,32 @@
+"use client";
+
 import {
   Card,
   CardBody,
   Image,
-  Button,
   Divider,
   Accordion,
   AccordionItem,
-  Tooltip,
 } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 import styles from "@/components/tab/styles/customTab.module.css";
-import { Icon } from "@iconify/react";
+import CompareModal from "../modal/compare_modal";
+import ChangeModal from "../modal/change_modal";
+import { usePlanStore } from "@/stores/planStore";
 
 export default function CustomTabCard({ data }) {
-  // 이동통신사에 따라 로고 이미지를 다르게 설정
+  const router = useRouter();
+  const setPlan = usePlanStore((state) => state.setPlan);
+
+  // 상세 페이지로 데이터 전달
+  const handleNavigation = (plan, idx) => {
+    // Zustand를 통해 plan 데이터 설정
+    setPlan(plan);
+
+    // 상세 페이지로 이동
+    router.push(`/yogoChange/${idx}`);
+  };
+
   const ImageSrc = (mno) => {
     switch (mno) {
       case "SKT":
@@ -21,6 +35,8 @@ export default function CustomTabCard({ data }) {
         return "/images/kt_logo.png";
       case "LGU":
         return "/images/lgu_logo.png";
+      default:
+        return "/images/phone_default.png";
     }
   };
 
@@ -34,13 +50,15 @@ export default function CustomTabCard({ data }) {
         return "/images/starbucks.png";
       case "cu":
         return "/images/cu.png";
+      default:
+        return "/images/gift.png";
     }
   };
 
   return (
     <>
-      {data.planMetas.map((plan, idx) => (
-        <Card key={idx} className={styles.card}>
+      {data.plans.map((plan, idx) => (
+        <Card className={styles.card} key={plan.id || idx}>
           <CardBody>
             <div>
               <div className={styles.title}>
@@ -52,35 +70,51 @@ export default function CustomTabCard({ data }) {
                 <p>{plan.name}</p>
               </div>
 
-              <div className={styles.boldText}>
-                <p style={{ paddingRight: "5px" }}>월</p>
-                <p style={{ paddingRight: "5px" }}>{plan.mobileDataStr}</p>
-                <p style={{ paddingRight: "5px" }}>+</p>
-                <p>{plan.mobileDataDateExhaustedDescription}</p>
-              </div>
+              <div
+                onClick={() => handleNavigation(plan, idx)}
+                style={{ cursor: "pointer" }}
+              >
+                <div className={styles.boldText}>
+                  <span style={{ paddingRight: "5px" }}>월</span>
+                  <span style={{ paddingRight: "5px" }}>
+                    {plan.mobileDataStr === null ? "0GB" : plan.mobileDataStr}
+                  </span>
+                  <span>
+                    {plan.mobileDataDateExhaustedDescription
+                      ? `+${plan.mobileDataDateExhaustedDescription}`
+                      : plan.mobileDataDateExhaustedDescription}
+                  </span>
+                </div>
 
-              <div className={styles.info}>
-                <p style={{ paddingRight: "5px" }}>통화</p>
-                <p style={{ paddingRight: "10px" }}>
-                  {plan.mobileMessage === 9999 ? "무제한" : plan.mobileMessage}
-                </p>
-                <p style={{ paddingRight: "10px" }}>|</p>
-                <p style={{ paddingRight: "5px" }}>문자</p>
-                <p style={{ paddingRight: "10px" }}>
-                  {plan.mobileVoice === 9999 ? "무제한" : plan.mobileVoice}
-                </p>
-                <p style={{ paddingRight: "10px" }}>|</p>
-                <p>{plan.net}</p>
+                <div className={styles.info}>
+                  <span style={{ paddingRight: "5px" }}>통화</span>
+                  <span style={{ paddingRight: "10px" }}>
+                    {plan.mobileVoice === 9999
+                      ? "무제한"
+                      : plan.mobileVoice + "분"}
+                  </span>
+                  <span style={{ paddingRight: "10px" }}>|</span>
+                  <p style={{ paddingRight: "5px" }}>문자</p>
+                  <span style={{ paddingRight: "10px" }}>
+                    {plan.mobileMessage === 9999
+                      ? "무제한"
+                      : plan.mobileMessage + "건"}
+                  </span>
+                  <span style={{ paddingRight: "10px" }}>|</span>
+                  <span>{plan.net}</span>
+                </div>
               </div>
 
               <div style={{ display: "flex", flexDirection: "row" }}>
-                <p style={{ color: "#01A69F" }} className={styles.boldText}>
-                  <p style={{ paddingRight: "5px" }}>월</p>
+                <span style={{ color: "#01A69F" }} className={styles.boldText}>
+                  <span style={{ paddingRight: "5px" }}>월</span>
                   {plan.feeString}원
-                </p>
-
-                <Button className={styles.compareButton}>비교하기</Button>
-                <Button className={styles.selectButton}>변경하기</Button>
+                </span>
+                {/* 버튼 모달 추가 */}
+                <div className={styles.buttons}>
+                  <CompareModal data={plan} />
+                  <ChangeModal />
+                </div>
               </div>
 
               <Divider />
@@ -89,10 +123,12 @@ export default function CustomTabCard({ data }) {
                 // 혜택이 있을 때
                 <Accordion>
                   <AccordionItem
+                    textValue="혜택 보기"
                     startContent={
                       <div className={styles.giftImage}>
-                        {plan.giftList.map((gift) => (
+                        {plan.giftList.map((gift, giftIdx) => (
                           <Image
+                            key={gift.id || giftIdx}
                             src={giftImageSrc(gift.category)}
                             alt={gift.category}
                             className={styles.giftImage}
@@ -104,14 +140,14 @@ export default function CustomTabCard({ data }) {
                     }
                   >
                     {plan.giftList.map((gift, giftIdx) => (
-                      <div className={styles.giftList}>
-                        <p>혜택 {giftIdx + 1}.</p>
-                        <p>{gift.eventTitle}</p>
+                      <div className={styles.giftList} key={gift.id || giftIdx}>
+                        <span>혜택 {giftIdx + 1}.</span>
+                        <span>{gift.eventTitle}</span>
 
-                        <p>상세 설명: {gift.description}</p>
+                        <span>상세 설명: {gift.description}</span>
 
                         {gift.receiptDate && (
-                          <p>(제공 시기: {gift.receiptDate})</p>
+                          <span>(제공 시기: {gift.receiptDate})</span>
                         )}
                       </div>
                     ))}

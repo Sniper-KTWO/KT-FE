@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect, useRef } from "react";
 import styles from "./styles/chatBot.module.css";
 import { Input } from "@nextui-org/react";
@@ -220,8 +221,10 @@ export default function ChatBot() {
     }
   };
 
+
   return (
     <div className={styles.page}>
+
       <div className={styles.chatContainer}>
         <ul className={styles.chatList}>
           {chatMessages.map((msg) => (
@@ -256,6 +259,7 @@ export default function ChatBot() {
             />
           </div>
         </div>
+
       </div>
     </div>
   );

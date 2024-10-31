@@ -151,6 +151,7 @@ const UncheckedLeftData = () => {
           <div className={styles.textbox9}>
             <Image
               src="/images/call-message-icon.png"
+              alt="전화와 메시지 아이콘"
               width={24.44}
               height={25}
             />
@@ -159,7 +160,12 @@ const UncheckedLeftData = () => {
             </p>
           </div>
           <div className={styles.textbox9}>
-            <Image src="/images/gift-icon.png" width={24.44} height={25} />
+            <Image
+              src="/images/gift-icon.png"
+              alt="gift icon"
+              width={24.44}
+              height={25}
+            />
             <p className={styles.textbox9_1}>
               {stepTextData[step - 1].giftMessage}
             </p>
@@ -167,6 +173,7 @@ const UncheckedLeftData = () => {
           <div className={styles.textbox9}>
             <Image
               src="/images/membership-icon.png"
+              alt="membership icon"
               width={24.44}
               height={25}
             />
@@ -175,7 +182,12 @@ const UncheckedLeftData = () => {
             </p>
           </div>
           <div className={styles.textbox9}>
-            <Image src="/images/coupon-icon.png" width={24.44} height={25} />
+            <Image
+              src="/images/coupon-icon.png"
+              alt="coupon icon"
+              width={24.44}
+              height={25}
+            />
             <p className={styles.textbox9_1}>
               {stepTextData[step - 1].couponMessage}
             </p>

@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 1. 페이지 소개
+### 요고 다이렉트 페이지
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/7e269de7-af55-45f2-b70b-1231b404f904">
+<p>- 이미지 슬라이더</p>
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/d30f2ab8-a699-4f28-84e3-dcf62c2b0a38">
 
-## Getting Started
+### 요고 가입 혜택
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/4dad8ca1-bd0c-4256-a404-fdd778475a67">
+<p>  - 증감 슬라이더 
+</p>
 
-First, run the development server:
+### 요고 브랜드 스토리 
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/a76d9a90-57a6-42fa-8a41-52e63387300b">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 요금제 변경 페이지
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0be2384b-2a1a-4b34-9b17-ef89bc4e75ba">
+<p>  - 탭</p>
+<p>  - 필터링</p>
+
+### 비교함 페이지
+구현중...
+
+### 챗봇 (시나리오봇)
+구현중...
+
+## 2. 프로젝트 구조
 ```
+📦KT-FE
+	┣ 📂public
+	┃  ┗ 📂images
+	┗ 📂src
+	 ┣ 📂app
+	 ┃ ┣ 📂(yogo)
+	 ┃ ┃ ┣ 📂(home)
+	 ┃ ┃ ┣ 📂chatBot
+	 ┃ ┃ ┣ 📂yogoBrand
+	 ┃ ┃ ┣ 📂yogoChange
+	 ┃ ┃ ┣ 📂yogoCompare
+	 ┃ ┃ ┗  📂yogoEvent
+	 ┃ ┗ 📜globals.css
+	 ┗ 📂components
+	 ┃ ┣ 📂change
+	 ┃ ┣ 📂checkBox
+	 ┃ ┣ 📂dropdown
+	 ┃ ┣ 📂plusMinusSlider
+	 ┃ ┣ 📂scrollButton
+	 ┃ ┣ 📂slider
+	 ┃ ┗ 📂tab
+```
+- 전체적으로 Next.js의 App Router 방식을 취함
+- 재사용 가능성이 있는 컴포넌트는 components 폴더 내 위치
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 3. 버전
+**Dependencies**
+|Dependencies|버전|
+|------|---|
+|Next.js|v14.2.15|
+|React|v18.3.1|
+|React DOM|v18.3.1|
+|Slick Carousel|v1.8.1|
+|Sharp|v0.33.5|
+|TailwindCSS|v0.33.5|
+|@nextui-org/react|v2.4.8|
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Dev Dependencies**
+|Dev Dependencies|버전|
+|------|---|
+|Sharp|v3.4.1|
+|ESLint|v8.x|
