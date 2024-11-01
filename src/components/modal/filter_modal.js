@@ -6,6 +6,7 @@ import Image from "next/image";
 import PriceSlider from "../slider/price_slider";
 import styles from "../dropdown/styles/menu.module.css";
 import { Icon } from "@iconify/react";
+import { Fragment } from "react";
 
 function FilterModal({ onSearchChange }) {
   const dialogRef = useRef(null);
@@ -70,7 +71,7 @@ function FilterModal({ onSearchChange }) {
   };
 
   return (
-    <>
+    <Fragment>
       <div style={{ height: "auto" }}>
         <Button auto light className={styles.filter} onClick={showModal}>
           <Icon icon="rivet-icons:filter" className={styles.filterIcon} />
@@ -152,7 +153,7 @@ function FilterModal({ onSearchChange }) {
           </div>
         </dialog>
       </div>
-    </>
+    </Fragment>
   );
 }
 
