@@ -70,13 +70,13 @@ function FilterModal({ onSearchChange }) {
   };
 
   return (
-    <div style={{ height: "auto" }}>
-      <Button auto light className={styles.filter} onClick={showModal}>
-        <Icon icon="rivet-icons:filter" className={styles.filterIcon} />
-        필터
-      </Button>
+    <>
+      <div style={{ height: "auto" }}>
+        <Button auto light className={styles.filter} onClick={showModal}>
+          <Icon icon="rivet-icons:filter" className={styles.filterIcon} />
+          필터
+        </Button>
 
-      <>
         <dialog ref={dialogRef}>
           <div className="question">어떤 요금제를 찾으시나요?</div>
           <Divider className="divide" />
@@ -151,8 +151,8 @@ function FilterModal({ onSearchChange }) {
             </button>
           </div>
         </dialog>
-      </>
-    </div>
+      </div>
+    </>
   );
 }
 
