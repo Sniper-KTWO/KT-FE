@@ -14,17 +14,31 @@ function FilterModal({ onSearchChange }) {
   const [isLGActive, setIsLGActive] = useState(false);
   const [minFee, setMinFee] = useState(0);
   const [maxFee, setMaxFee] = useState(70000);
+  const [selectedNetWorks, setSelectedNetWorks] = useState([]);
 
   const handleKTClick = () => {
     setIsKTActive((prevState) => !prevState);
+    setSelectedNetWorks((prev) =>
+      prev.includes("KT") ? prev.filter((net) => net !== "KT") : [...prev, "KT"]
+    );
   };
 
   const handleSKTClick = () => {
     setIsSKTActive((prevState) => !prevState);
+    setSelectedNetWorks((prev) =>
+      prev.includes("SKT")
+        ? prev.filter((net) => net !== "SKT")
+        : [...prev, "SKT"]
+    );
   };
 
   const handleLGClick = () => {
     setIsLGActive((prevState) => !prevState);
+    setSelectedNetWorks((prev) =>
+      prev.includes("LGU")
+        ? prev.filter((net) => net !== "LGU")
+        : [...prev, "LGU"]
+    );
   };
 
   const showModal = () => {
@@ -37,16 +51,11 @@ function FilterModal({ onSearchChange }) {
     setIsLGActive(false);
     setMinFee(0);
     setMaxFee(70000);
+    setSelectedNetWorks([]);
     dialogRef.current?.close();
   };
 
   const handleConfirm = () => {
-    const selectedNetWorks = [];
-
-    if (isKTActive) selectedNetWorks.push("KT");
-    if (isSKTActive) selectedNetWorks.push("SKT");
-    if (isLGActive) selectedNetWorks.push("LG");
-
     if (onSearchChange) {
       onSearchChange({
         minFee,
@@ -54,11 +63,14 @@ function FilterModal({ onSearchChange }) {
         network: selectedNetWorks,
       });
     }
+    console.log("min:", minFee);
+    console.log("max:", maxFee);
+    console.log("network:", selectedNetWorks);
     dialogRef.current?.close();
   };
 
   return (
-    <>
+    <div style={{ height: "auto" }}>
       <Button auto light className={styles.filter} onClick={showModal}>
         <Icon icon="rivet-icons:filter" className={styles.filterIcon} />
         필터
@@ -138,7 +150,7 @@ function FilterModal({ onSearchChange }) {
           </button>
         </div>
       </dialog>
-    </>
+    </div>
   );
 }
 
