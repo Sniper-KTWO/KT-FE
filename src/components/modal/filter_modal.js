@@ -76,80 +76,82 @@ function FilterModal({ onSearchChange }) {
         필터
       </Button>
 
-      <dialog ref={dialogRef}>
-        <div className="question">어떤 요금제를 찾으시나요?</div>
-        <Divider className="divide" />
-        <PriceSlider
-          aria-label="Price Slider"
-          onChange={(min, max) => {
-            setMinFee(min);
-            setMaxFee(max);
-          }}
-        />
+      <>
+        <dialog ref={dialogRef}>
+          <div className="question">어떤 요금제를 찾으시나요?</div>
+          <Divider className="divide" />
+          <PriceSlider
+            aria-label="Price Slider"
+            onChange={(min, max) => {
+              setMinFee(min);
+              setMaxFee(max);
+            }}
+          />
 
-        <div className="tel">통신사</div>
-        <div className="logos">
-          <button
-            aria-label="Network Selection Button1"
-            className="logo"
-            onClick={handleKTClick}
-            style={{
-              backgroundColor: !isKTActive ? "#f5f5f5" : "#86e8d1",
-            }}
-          >
-            <Image
-              className="logoImg"
-              src={"/images/kt_logo.png"}
-              alt="kt"
-              width={15}
-              height={15}
-            />
-            <span style={{ marginLeft: "-45px" }}>KT</span>
-          </button>
-          <button
-            aria-label="Network Selection Button2"
-            className="logo"
-            onClick={handleSKTClick}
-            style={{
-              backgroundColor: !isSKTActive ? "#f5f5f5" : "#86e8d1",
-            }}
-          >
-            <Image
-              className="logoImg"
-              src={"/images/skt_logo.png"}
-              alt="skt"
-              width={17}
-              height={17}
-            />
-            <span style={{ marginLeft: "-45px" }}>SKT</span>
-          </button>
-          <button
-            aria-label="Network Selection Button3"
-            className="logo"
-            onClick={handleLGClick}
-            style={{
-              backgroundColor: !isLGActive ? "#f5f5f5" : "#86e8d1",
-            }}
-          >
-            <Image
-              className="logoImg"
-              src={"/images/lgu_logo.png"}
-              alt="LG"
-              width={17}
-              height={17}
-            />
-            <span style={{ marginLeft: "-45px" }}>LG</span>
-          </button>
-        </div>
-        <div className="buttons">
-          <button className="cancel" onClick={closeModal}>
-            취소
-          </button>
-          <button className="ok" onClick={handleConfirm}>
-            완료
-          </button>
-        </div>
-      </dialog>
+          <div className="tel">통신사</div>
+          <div className="logos">
+            <button
+              aria-label="Network Selection Button1"
+              className="logo"
+              onClick={handleKTClick}
+              style={{
+                backgroundColor: !isKTActive ? "#f5f5f5" : "#86e8d1",
+              }}
+            >
+              <Image
+                className="logoImg"
+                src={"/images/kt_logo.png"}
+                alt="kt"
+                width={15}
+                height={15}
+              />
+              <span style={{ marginLeft: "-45px" }}>KT</span>
+            </button>
+            <button
+              aria-label="Network Selection Button2"
+              className="logo"
+              onClick={handleSKTClick}
+              style={{
+                backgroundColor: !isSKTActive ? "#f5f5f5" : "#86e8d1",
+              }}
+            >
+              <Image
+                className="logoImg"
+                src={"/images/skt_logo.png"}
+                alt="skt"
+                width={17}
+                height={17}
+              />
+              <span style={{ marginLeft: "-45px" }}>SKT</span>
+            </button>
+            <button
+              aria-label="Network Selection Button3"
+              className="logo"
+              onClick={handleLGClick}
+              style={{
+                backgroundColor: !isLGActive ? "#f5f5f5" : "#86e8d1",
+              }}
+            >
+              <Image
+                className="logoImg"
+                src={"/images/lgu_logo.png"}
+                alt="LG"
+                width={17}
+                height={17}
+              />
+              <span style={{ marginLeft: "-45px" }}>LG</span>
+            </button>
+          </div>
+          <div className="buttons">
+            <button className="cancel" onClick={closeModal}>
+              취소
+            </button>
+            <button className="ok" onClick={handleConfirm}>
+              완료
+            </button>
+          </div>
+        </dialog>
+      </>
     </div>
   );
 }
